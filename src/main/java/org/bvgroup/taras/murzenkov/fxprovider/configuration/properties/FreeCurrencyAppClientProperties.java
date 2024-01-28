@@ -7,10 +7,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConditionalOnProperty(
-        prefix = "fx.providers.freecurrencyap",
-        name = "enabled",
-        havingValue = "true")
 @ConfigurationProperties(prefix = "fx.providers.freecurrencyap")
 @Getter
 @Setter

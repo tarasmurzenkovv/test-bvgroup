@@ -2,16 +2,9 @@ fx:
   rates:
     cache:
       ttl: 60s
-  value:
-    conversion:
-      cache:
-        ttl: 60s
   providers:
     # https://app.freecurrencyap.com/dashboard
     freecurrencyap:
       host: https://api.freecurrencyapi.com/v1/latest?apikey=
       apiKey: ${FREECURRENCYAPP_API_KEY}
       enabled: true
-    test:
-      host: http://localhost
-      enabled: false

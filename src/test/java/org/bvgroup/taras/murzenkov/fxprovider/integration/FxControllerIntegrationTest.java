@@ -20,7 +20,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT,
         properties = "spring.profiles.active=test")
-class FxProviderApplicationTests {
+class FxControllerIntegrationTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -31,29 +31,4 @@ class FxProviderApplicationTests {
         assertThat(fxRate)
                 .isEqualTo(new FxRate("USD", "GBP", BigDecimal.ONE));
     }
-
-    @Test
-    void shouldBulkConvertValues() {
-        final var headers = new LinkedMultiValueMap<String, String>();
-        headers.add("Content-Type", APPLICATION_JSON_VALUE);
-        final var httpEntity = new HttpEntity<>("""
-                {
-                    "currencies": [
-                        {
-                            "currencyTo": "GBP",
-                            "amount": 10
-                        }                      
-                    ]
-                }
-                """, headers);
-        final var response = restTemplate
-                .exchange("/api/v1/fx-rates/value-conversion/USD",
-                        POST,
-                        httpEntity,
-                        new ParameterizedTypeReference<List<ValueConversion>>() {
-                        });
-        assertThat(response.getBody())
-                .isEqualTo(List.of(new ValueConversion("USD", "GBP", BigDecimal.valueOf(10))));
-    }
-
 }
