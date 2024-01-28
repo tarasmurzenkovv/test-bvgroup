@@ -19,7 +19,7 @@ import static org.springframework.http.HttpMethod.POST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT,
-        properties = "fx.providers.test.enabled=true")
+        properties = "spring.profiles.active=test")
 class FxProviderApplicationTests {
     @Autowired
     private TestRestTemplate restTemplate;

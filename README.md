@@ -52,7 +52,10 @@ Documentation will be available http://localhost:8080/swagger-ui/index.html
    2. MB to reactive approach?
    3. What if the external provider is really slow? Redesign service so that it has tree component: request handler,
    queue and request processor. 
+   4. dont cache non 201 response
 3. Security
 4. Testing:
-   1.Load testing?
+   1. add more tests
+   2. add test constraints to build (min 85% coverage)
+   3. Load testing?
    

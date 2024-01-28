@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-@ConditionalOnProperty(value = "fx.providers.test.enabled", havingValue = "true")
+@ConditionalOnProperty(value = "spring.profiles.active", havingValue = "test")
 public class TestFxClient implements FxRateClient {
 
     @Override

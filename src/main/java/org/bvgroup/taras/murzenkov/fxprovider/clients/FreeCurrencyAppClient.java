@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-@ConditionalOnProperty(value = "fx.providers.freecurrencyap.enabled", havingValue = "true")
+@ConditionalOnProperty(value = "spring.profiles.active", havingValue = "prod")
 @RequiredArgsConstructor
 public class FreeCurrencyAppClient implements FxRateClient {
     private final RestTemplate restTemplate;
